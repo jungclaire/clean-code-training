@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author claire
+ * <p>
+ * 중개수수료가 얼마인지 조회하는 컨트롤러
+ */
+
 @RestController
 public class BrokerageQueryController {
 
