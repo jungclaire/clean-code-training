@@ -1,7 +1,7 @@
 package com.cleancode.houseutils.policy;
 
 import lombok.AllArgsConstructor;
-import org.springframework.lang.Nullable;
+import lombok.Getter;
 
 /**
  * @author claire
@@ -10,16 +10,17 @@ import org.springframework.lang.Nullable;
  */
 
 @AllArgsConstructor
+@Getter
 public class BrokerageRule {
+    private Long lessThan;
     private Double brokeragePercent;
-
-    @Nullable
     private Long limitAmount;
 
+    public BrokerageRule(Long lessThan, Double brokeragePercent) {
+        this(lessThan, brokeragePercent, Long.MAX_VALUE);
+    }
+
     public Long calcMaxBrokerage(Long price) {
-        if (limitAmount == null) {
-            return multiplyPercent(price);
-        }
         return Math.min(multiplyPercent(price), limitAmount);
     }
 
